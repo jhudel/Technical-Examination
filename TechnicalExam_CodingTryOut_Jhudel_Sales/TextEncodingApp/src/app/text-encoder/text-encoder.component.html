@@ -1,0 +1,49 @@
+ <!--link to access swagger-->
+ <a href="http://localhost:5113/swagger/index.html" target="_blank">Click here to check swagger for APIS</a>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <br>
+        <!--GET ALL EMPLOYEES-->
+        <h3>List of Employees</h3>
+        <button (click)="addEmployees()">Add employees</button>
+        <br>
+
+        <div *ngIf="data && data.length > 0">
+          <ul>
+            <li *ngFor="let item of data">
+              <span *ngIf="selectedItem === item; else displayItem">
+                Employee Id: {{item.employeeId + ", "}}
+                Full Name: 
+                <input [(ngModel)]="editedItem.FullName" [placeholder]="item.fullName" />
+                
+                Birth Date: 
+                <form [(ngModel)]="editedItem.BirthDate" [formGroup]="dateForm" (ngSubmit)="onSubmit()">
+                  <input type="date" formControlName="date">
+                </form>
+
+                Tin: 
+                <input [(ngModel)]="editedItem.Tin" [placeholder]="item.tin" />
+                
+                Employee Type: 
+                <input [(ngModel)]="editedItem.EmployeeType" [placeholder]="item.employeeType" />
+                
+                <button (click)="saveChanges(item)">Save</button>
+                <button (click)="cancelEdit()">Cancel</button>
+              </span>
+              <ng-template #displayItem>
+                EmployeeId: {{ item.employeeId }}, FullName: {{ item.fullName }}, Birthdate: {{ item.birthDate }}, Tin: {{ item.tin }}, EmployeeType: {{ item.employeeType }}
+                <br><br>
+                <button (click)="editItem(item)">Edit</button>
+                <button (click)="deleteItem(item)">Delete</button>
+                <button (click)="Calculate(item)">Calculate</button>
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

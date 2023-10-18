@@ -1,0 +1,57 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Calculate Employee Salary</h4>
+    </div>
+    <div class="modal-body">
+      <!-- modal body -->
+      
+    <!-- Salary Calculation Section -->
+    <div class="salary-calculation-section">
+    <h2>Salary Calculation</h2>
+    <p>Select Employee Type:</p>
+    <select [(ngModel)]="employeeType">
+        <option value="regular">Regular</option>
+        <option value="contractual">Contractual</option>
+    </select>
+
+    <!-- Regular Employee Input Fields -->
+    <div *ngIf="employeeType === 'regular'">
+        <label>Basic Monthly Salary:</label>
+        <input [(ngModel)]="basicSalary" type="number" step="0.01" required />
+        <br />
+        <label>Number of Absences:</label>
+        <input [(ngModel)]="absences" type="number" step="0.01" required />
+    </div>
+
+    <!-- Contractual Employee Input Fields -->
+    <div *ngIf="employeeType === 'contractual'">
+        <label>Rate per Day:</label>
+        <input [(ngModel)]="ratePerDay" type="number" step="0.01" required />
+        <br />
+        <label>Number of Worked Days:</label>
+        <input [(ngModel)]="workedDays" type="number" step="0.01" required />
+    </div>
+
+  <!-- Calculate Button -->
+  <button (click)="calculateSalary()">Calculate Salary</button>
+
+  <!-- Calculated Salary Display -->
+  <div *ngIf="calculatedSalary !== null" class="calculated-salary-section">
+    <p>Calculated Salary:</p>
+    <p>{{ calculatedSalary | currency: 'PHP': 'symbol': '1.2-2' }}</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+    </div>
+    
+    <div class="modal-footer">
+      <button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+  

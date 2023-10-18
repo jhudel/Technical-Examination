@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\Services",
+    "\\TextEncodingApp",
+    "\\TextEncodingApp\\src",
+    "\\TextEncodingApp\\src\\app",
+    "\\TextEncodingApp\\src\\app\\text-encoder"
+  ],
+  "SelectedNode": "\\Services\\TextService.cs",
+  "PreviewInSolutionExplorer": false
+}

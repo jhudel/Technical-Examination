@@ -1,0 +1,54 @@
+<div class="login-container">
+    <!--registration area-->
+    <div class="form-group">
+        <h2>Register</h2>
+
+        <!--Full Name-->
+        <br>
+        <label>Username :</label>
+        <br>
+        <textarea class="form-control"
+                id="newUserFullName"
+                [(ngModel)]="newUserFullName"
+                rows="3"
+                style="resize: none;">
+        </textarea>
+
+        <!--birthdate-->
+        <br>
+        <label>Birth Date :</label>
+        <br>
+
+        <form [formGroup]="dateForm" (ngSubmit)="onSubmit()">
+            <input type="date" formControlName="date">
+        </form>
+          
+
+        <!--Tin-->
+        <br>
+        <label>Tin :</label>
+        <br>
+        <textarea class="form-control"
+                id="newUserTin"
+                [(ngModel)]="newUserTin"
+                rows="3"
+                style="resize: none;">
+        </textarea>
+
+        <!--Employee Type-->
+        <br>
+        <label>Employee Type :</label>
+        <br>
+        <select [(ngModel)]="EmployeeType" name="options">
+                <option value="regular">regular</option>
+                <option value="contractual">contractual</option>
+        </select>
+
+        <h4 *ngIf="isAllFieldsComplete">Fill up all the fields</h4>
+        <h4 *ngIf="!isAllFieldsComplete">{{mainText}}</h4>
+        <p *ngIf="!isAllFieldsComplete">{{subText}}</p>
+        <button (click)="registerUser()">Register</button>
+    </div>
+  </div>
+  
+  
