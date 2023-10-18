@@ -6,10 +6,7 @@ Before you begin, make sure you have the following software installed on your ma
 
 .NET Core SDK
 SQL Server
-Step 1: Download the Application
-
-Download the ZIP archive containing the application files.
-Extract the contents of the ZIP archive to a directory of your choice on your local machine.
+Step 1: Set up locally the application
 
 Step 2: Configure the Database Connection
 
@@ -31,10 +28,10 @@ Step 4: Run the Application
 Open a command prompt or terminal in the application's directory.
 
 For Back end side, run the following command to start the application locally:
-dotnet run
+-dotnet run
 
 For Front end side, run the following command to start the application locally
-npm start
+-npm start
 
 Step 5: Access the Application
 
